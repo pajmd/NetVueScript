@@ -30,3 +30,6 @@ echo /sbin/mdev > /proc/sys/kernel/hotplug
 
 mount -t jffs2 /dev/mtdblock4 /mnt/mtd
 /mnt/mtd/boot.sh &
+sleep 10
+/usr/sbin/telnetd &
+echo  "**************** Telnet is ON *****************"
