@@ -1,0 +1,32 @@
+#!/bin/sh
+
+export PATH="/mnt/mtd/firmware:/mnt/mtd/firmware/bin:/mnt/mtd/firmware/tool:/usr/local/bin:$PATH"
+export LD_LIBRARY_PATH="/mnt/mtd/firmware/lib:/mnt/mtd/firmware/lib/sns:$LD_LIBRARY_PATH"
+
+# Start all init scripts in /etc/init.d
+# executing them in numerical order.
+#
+for i in /etc/init.d/S??* ;do
+     # Ignore dangling symlinks (if any).
+     [ ! -f "$i" ] && continue
+
+     case "$i" in
+        *.sh)
+            # Source shell script for speed.
+            (
+                trap - INT QUIT TSTP
+                set start
+                . $i
+            )
+            ;;
+        *)
+            # No sh extension, so fork subprocess.
+            $i start
+            ;;
+    esac
+done
+
+echo /sbin/mdev > /proc/sys/kernel/hotplug
+
+mount -t jffs2 /dev/mtdblock4 /mnt/mtd
+/mnt/mtd/boot.sh &
