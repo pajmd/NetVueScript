@@ -6,3 +6,11 @@ The SD card is mounted as
 
 ## Log files
 tail -f /var/run/nvc/log-logger_roll.log
+
+## Attempt to fix the issue SDcard
+/bin/sh /mnt/mtd/netvue/firmware/bin/loader
+Removing some lock file
+rm /var/run/nvc/pid-loader.pid
+
+Didn't do the trick
+
