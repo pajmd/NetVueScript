@@ -17,6 +17,10 @@ Didn't do the trick, but not app and cam would no longer communicate!!
 ## Device ID
 2041503611705259
 
+in practice to make the cam recognized by Netvue infrastructure, in the app
+I said during Scan QR code sequence, the id was:
+2314473851502382
+
 ## App return ID 
 It doesn't match the real ID but at leat the app kind of works
 2314 4738 5150 2382
