@@ -27,4 +27,4 @@ Wants to ugrage to 1803 but since the app thinks it's Orb Home cam I don't think
 
 ##Reading the SD/TF files on PC
 
-{see file converter}(https://support.netvue.com/hc/en-us/articles/360002581858-How-can-I-read-the-files-recorded-on-SD-TF-card-)
+(see file converter){https://support.netvue.com/hc/en-us/articles/360002581858-How-can-I-read-the-files-recorded-on-SD-TF-card-}
