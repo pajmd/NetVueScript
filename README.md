@@ -24,3 +24,7 @@ It doesn't match the real ID but at leat the app kind of works
 ## Firmware version
 So far 1735
 Wants to ugrage to 1803 but since the app thinks it's Orb Home cam I don't think it is a good idea.
+
+##Reading the SD/TF files on PC
+
+{see file converter}(https://support.netvue.com/hc/en-us/articles/360002581858-How-can-I-read-the-files-recorded-on-SD-TF-card-)
