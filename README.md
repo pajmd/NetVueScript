@@ -25,6 +25,9 @@ I said during Scan QR code sequence, the id was:
 It doesn't match the real ID but at leat the app kind of works
 2314 4738 5150 2382
 
+### Trace app
+2023-07-30 10:28:03.339  8315-27644 ConnectRouterTask       com.netviewtech  onDeviceFound.236 [Broadcast-recv-1690705628076]: device: 2314473851502382, 192.168.1.29:5555 
+
 ## Firmware version
 So far 1735
 Wants to ugrage to 1803 but since the app thinks it's Orb Home cam I don't think it is a good idea.
