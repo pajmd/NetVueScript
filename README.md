@@ -18,5 +18,9 @@ Didn't do the trick, but not app and cam would no longer communicate!!
 2041503611705259
 
 ## App return ID 
-It doen't match the real ID but at leat the app kind of works
+It doesn't match the real ID but at leat the app kind of works
 2314 4738 5150 2382
+
+## Firmware version
+So far 1735
+Wants to ugrage to 1803 but since the app thinks it's Orb Home cam I don't think it is a good idea.
