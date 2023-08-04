@@ -35,3 +35,7 @@ Wants to ugrage to 1803 but since the app thinks it's Orb Home cam I don't think
 ## Reading the SD/TF files on PC
 
 [see file converter](https://support.netvue.com/hc/en-us/articles/360002581858-How-can-I-read-the-files-recorded-on-SD-TF-card-)
+
+## Mountind SD card with mdev (udev equivalent)
+
+Read [Automatically mount removable media](http://www.armadeus.org/wiki/index.php?title=Automatically_mount_removable_media)
