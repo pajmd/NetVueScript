@@ -32,10 +32,13 @@ It doesn't match the real ID but at leat the app kind of works
 So far 1735
 Wants to ugrage to 1803 but since the app thinks it's Orb Home cam I don't think it is a good idea.
 
-## Reading the SD/TF files on PC
+## Reading Netvue the SD/TF files on PC
 
 [see file converter](https://support.netvue.com/hc/en-us/articles/360002581858-How-can-I-read-the-files-recorded-on-SD-TF-card-)
 
 ## Mountind SD card with mdev (udev equivalent)
 
 Read [Automatically mount removable media](http://www.armadeus.org/wiki/index.php?title=Automatically_mount_removable_media)
+
+## All about **mdev**
+[Busybox mdev explanation and config](https://git.busybox.net/busybox/tree/docs/mdev.txt?h=1_18_stable)
