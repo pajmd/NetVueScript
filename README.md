@@ -44,7 +44,7 @@ Read [Automatically mount removable media](http://www.armadeus.org/wiki/index.ph
 [Busybox mdev explanation and config](https://git.busybox.net/busybox/tree/docs/mdev.txt?h=1_18_stable)
 
 ## CPU info
-~ # cat /proc/cpuinfo 
+~ # cat /proc/cpuinfo  
 Processor       : ARMv6-compatible processor rev 7 (v6l)
 BogoMIPS        : 597.60
 Features        : swp half fastmult vfp edsp java tls
