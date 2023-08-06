@@ -58,3 +58,7 @@ Hardware        : Goke IPC Board
 Revision        : 0000  
 Serial          : 0000000000000000  
 
+## Finding out open on the camera
+
+From a different machine **nmap -p- 192.168.1.29**
+
