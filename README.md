@@ -14,7 +14,7 @@ tail -f /var/run/nvc/log-logger_roll.log
 Removing some lock file
 rm /var/run/nvc/pid-loader.pid
 
-Didn't do the trick, but not app and cam would no longer communicate!!
+Didn't do the trick, but worse now app and cam would no longer communicate!!
 
 ## Device ID
 2041503611705259
