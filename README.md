@@ -64,3 +64,9 @@ Serial          : 0000000000000000
 
 From a different machine **nmap -p- 192.168.1.29**
 
+## Files of interest on the phone
+
+/storage/emulated/0/Android/data/com.netviewtech/files/.config/udid
+/storage/emulated/0/Android/data/com.netviewtech/files/log, log.udid:2d824eb78c13153251a7232e608bd11c
+
+
