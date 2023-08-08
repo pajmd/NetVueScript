@@ -4,6 +4,8 @@
 The SD card is mounted as 
 /dev/mmcblk0 on /mnt/TF type vfat (rw,noatime,nodiratime,fmask=0022,dmask=0022,codepage=cp437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
 
+It appears the **camera sends the state of the SD Card (mounted or not) to the app** somehow
+
 ## Log files
 tail -f /var/run/nvc/log-logger_roll.log
 
@@ -58,7 +60,7 @@ Hardware        : Goke IPC Board
 Revision        : 0000  
 Serial          : 0000000000000000  
 
-## Finding out open on the camera
+## Finding out open Ports on the camera
 
 From a different machine **nmap -p- 192.168.1.29**
 
