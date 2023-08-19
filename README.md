@@ -64,6 +64,12 @@ Serial          : 0000000000000000
 
 From a different machine **nmap -p- 192.168.1.29**
 
+## Config files
+
+See /mnt/mtd/netvue/firmware/config/v4  
+I saved backup copies there just in case.
+
+
 ## Files of interest on the phone
 
 /storage/emulated/0/Android/data/com.netviewtech/files/.config/udid
