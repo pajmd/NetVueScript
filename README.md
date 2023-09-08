@@ -6,6 +6,17 @@ The SD card is mounted as
 
 It appears the **camera sends the state of the SD Card (mounted or not) to the app** somehow
 
+## To be noted
+fdisk returns a questionable number of cylinders  
+~ # fdisk /dev/mmcblk0
+
+The number of cylinders for this disk is set to 3907584.  
+There is nothing wrong with that, but this is larger than 1024,  
+and could in certain setups cause problems with:  
+1) software that runs at boot time (e.g., old versions of LILO)  
+2) booting and partitioning software from other OSs  
+   (e.g., DOS FDISK, OS/2 FDISK)  
+
 ## Log files
 tail -f /var/run/nvc/log-logger_roll.log
 
