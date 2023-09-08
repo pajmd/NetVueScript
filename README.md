@@ -6,6 +6,10 @@ The SD card is mounted as
 
 It appears the **camera sends the state of the SD Card (mounted or not) to the app** somehow
 
+### Disk space consumption
+ It eats up about 4GB / hour from a total of 119 GB
+ In a little less than 5 days the SD card should be maxed out (today 08/09 then 13/09).
+
 ## Manual formatting
 ```
 mkfs.vfat -v /dev/mmcblk0
