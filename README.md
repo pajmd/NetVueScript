@@ -15,7 +15,43 @@ There is nothing wrong with that, but this is larger than 1024,
 and could in certain setups cause problems with:  
 1) software that runs at boot time (e.g., old versions of LILO)  
 2) booting and partitioning software from other OSs  
-   (e.g., DOS FDISK, OS/2 FDISK)  
+   (e.g., DOS FDISK, OS/2 FDISK)
+   
+```
+~ # df  
+Filesystem           1K-blocks      Used Available Use% Mounted on  
+/dev/root                 3072      1864      1208  61% /  
+tmpfs                    30084         0     30084   0% /dev  
+tmpfs                    30084         0     30084   0% /tmp  
+/dev/mtdblock4           11328      6372      4956  56% /mnt/mtd
+tmpfs                    30084         0     30084   0% /tmp
+tmpfs                    30084        68     30016   0% /var/run
+tmpfs                    10240         0     10240   0% /var/run/cloud_storage
+/dev/mmcblk0         124981648 124878672    102976 100% /mnt/TF
+~ # df -h
+Filesystem                Size      Used Available Use% Mounted on
+/dev/root                 3.0M      1.8M      1.2M  61% /
+tmpfs                    29.4M         0     29.4M   0% /dev
+tmpfs                    29.4M         0     29.4M   0% /tmp
+/dev/mtdblock4           11.1M      6.2M      4.8M  56% /mnt/mtd
+tmpfs                    29.4M         0     29.4M   0% /tmp
+tmpfs                    29.4M     68.0K     29.3M   0% /var/run
+tmpfs                    10.0M         0     10.0M   0% /var/run/cloud_storage
+/dev/mmcblk0            119.2G    119.1G    100.6M 100% /mnt/TF
+~ # mount
+rootfs on / type rootfs (rw)
+/dev/root on / type jffs2 (rw,relatime)
+proc on /proc type proc (rw,relatime)
+tmpfs on /dev type tmpfs (rw,relatime)
+tmpfs on /tmp type tmpfs (rw,relatime)
+sysfs on /sys type sysfs (rw,relatime)
+devpts on /dev/pts type devpts (rw,relatime,mode=600,ptmxmode=000)
+/dev/mtdblock4 on /mnt/mtd type jffs2 (rw,relatime)
+tmpfs on /tmp type tmpfs (rw,relatime)
+tmpfs on /var/run type tmpfs (rw,relatime)
+tmpfs on /var/run/cloud_storage type tmpfs (rw,noatime,nodiratime,size=10240k)
+/dev/mmcblk0 on /mnt/TF type vfat (rw,relatime,fmask=0022,dmask=0022,codepage=cp437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro)
+```
 
 ## Log files
 tail -f /var/run/nvc/log-logger_roll.log
