@@ -6,6 +6,12 @@ The SD card is mounted as
 
 It appears the **camera sends the state of the SD Card (mounted or not) to the app** somehow
 
+## Manual formatting
+```
+mkfs.vfat -v /dev/mmcblk0
+```
+To format and seems to cause a reboot (benefic?)
+
 ## To be noted
 fdisk returns a questionable number of cylinders  
 ~ # fdisk /dev/mmcblk0
