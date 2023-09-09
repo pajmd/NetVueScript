@@ -13,7 +13,9 @@ It appears the **camera sends the state of the SD Card (mounted or not) to the a
 ### Monitoring the SDCard mount
 
 Added in  /var/spool/cron/crontabs -> /mnt/mtd/config/crontabs 
-a line to run every 15 minutes  netvue_report.sh
+a line to run every 15 minutes  netvue_report.sh  
+
+See:
 ```
 crontab -e
 ```
