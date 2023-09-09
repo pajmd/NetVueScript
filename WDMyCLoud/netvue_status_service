@@ -1,0 +1,47 @@
+#!/bin/bash
+
+while true
+do
+nc -l -p 8888 >> /home/pjmd2/netvue.log
+done
+
+pjmd2@WDMyCloud:~$ cat netvue_status_service
+#!/bin/bash
+# description: Description comes here....
+
+
+start() {
+    # code to start app comes here
+    # example: daemon program_name &
+    /home/pjmd2/netvue_status_script &
+}
+
+stop() {
+    # code to stop app comes here
+    # example: killproc program_name
+    pid=$(ps -ef | grep "nc -l -p 8888" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pid} ]; then echo "nc already dead"; else kill -9 $pid; fi
+}
+
+case "$1" in
+    start)
+       start
+       ;;
+    stop)
+       stop
+       ;;
+    restart)
+       stop
+       start
+       ;;
+    status)
+       # code to check status of app comes here
+       # example: status program_name
+       ps -ef | grep "nc -l -p 8888" | grep -v grep
+       exit $?
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
+
+exit 0
