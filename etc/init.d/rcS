@@ -33,3 +33,6 @@ mount -t jffs2 /dev/mtdblock4 /mnt/mtd
 sleep 10
 /usr/sbin/telnetd &
 echo  "**************** Telnet is ON *****************"
+
+# Starting crond
+crond
