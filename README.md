@@ -10,6 +10,9 @@ It appears the **camera sends the state of the SD Card (mounted or not) to the a
 
 Added in  /var/spool/cron/crontabs -> /mnt/mtd/config/crontabs 
 a line to run every 15 minutes  netvue_report.sh
+```
+crontab -e
+```
 
 If /dev/mmcblk0 is no longer mounted the script sends a message to WDMyCloud netvue_status.sh with logs it in pjmd2/netvue.log
 
