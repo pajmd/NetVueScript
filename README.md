@@ -6,6 +6,13 @@ The SD card is mounted as
 
 It appears the **camera sends the state of the SD Card (mounted or not) to the app** somehow
 
+### Monitoring the SDCard mount
+
+Added in  /var/spool/cron/crontabs -> /mnt/mtd/config/crontabs 
+a line to run every 15 minutes  netvue_report.sh
+
+If /dev/mmcblk0 is no longer mounted the script sends a message to WDMyCloud netvue_status.sh with logs it in pjmd2/netvue.log
+
 ### Disk space consumption
  It eats up about 4GB / hour from a total of 119 GB.  
  In a little less than 5 days the SD card should be maxed out (today 08/09 then 13/09).
