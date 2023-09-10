@@ -19,8 +19,10 @@ start() {
 stop() {
     # code to stop app comes here
     # example: killproc program_name
-    pid=$(ps -ef | grep "nc -l -p 8888" | grep -v grep | awk '{ print $2 }')
-    if [ -z ${pid} ]; then echo "nc already dead"; else kill -9 $pid; fi
+    pid=$(ps -ef | grep "netvue_status_script" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pid} ]; then echo "netvue_status_script already dead"; else kill -9 $pid; fi
+    pidnc=$(ps -ef | grep "nc -l -p 8888" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pidnc} ]; then echo "nc already dead"; else kill -9 $pidnc; fi
 }
 
 case "$1" in
