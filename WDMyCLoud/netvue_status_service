@@ -39,7 +39,13 @@ case "$1" in
     status)
        # code to check status of app comes here
        # example: status program_name
-       ps -ef | grep "nc -l -p 8888" | grep -v grep
+       state=$(ps -ef | grep "netvue_status_script" | grep -v grep)
+       if [ -z $state ]
+       then
+          echo "netvue_status_service not running"
+       else
+          echo "netvue_status_service is running"
+       fi
        exit $?
        ;;
     *)
