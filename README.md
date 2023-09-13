@@ -18,7 +18,13 @@ a line to run every 15 minutes  netvue_report.sh
 See:
 ```
 crontab -e
+
+1 3 * * * /mnt/mtd/netvue/firmware/bin/upgrade_check.sh
+*/15 * * * * /root/netvue_report_sh
+
 ```
+I am removing the line suppose to update the cam tous les jours at 3AM.  
+Anyway **/mnt/mtd/netvue/firmware/bin/upgrade_check.sh** doesn't exist.
 
 If /dev/mmcblk0 is no longer mounted the script sends a message to WDMyCloud netvue_status.sh with logs it in pjmd2/netvue.log
 
