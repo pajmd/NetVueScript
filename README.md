@@ -1,5 +1,9 @@
 # NetVueScript
 
+## BusyBox
+The Netvue Webcam run BusyBox instead of a full fledge linux system.
+[Here](https://wiki.beyondlogic.org/index.php?title=Cross_Compiling_BusyBox_for_ARM) is an interesting article about installing BusyBox on a system.
+
 ## Booting up
 
 first script run is **/etc/init.d/rcS**
