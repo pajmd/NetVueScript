@@ -32,7 +32,7 @@ case "$1" in
        # code to check status of app comes here
        # example: status program_name
        state=$(ps -ef | grep "netvue_status_script" | grep -v grep)
-       if [ -z $state ]
+       if [ -z "$state" ]
        then
           echo "netvue_status_service not running"
        else
