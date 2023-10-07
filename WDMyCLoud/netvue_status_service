@@ -1,12 +1,4 @@
 #!/bin/bash
-
-while true
-do
-nc -l -p 8888 >> /home/pjmd2/netvue.log
-done
-
-pjmd2@WDMyCloud:~$ cat netvue_status_service
-#!/bin/bash
 # description: Description comes here....
 
 
