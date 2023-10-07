@@ -2,6 +2,6 @@
 
 while true
 do
-nc -l -p 8556 | dd bs=16M of=payload.tar
-tar xvf payload.tar
+nc -l -p 8556 | dd bs=16M of=/home/pjmd2/ntv3/payload.tar
+tar xvf /home/pjmd2/ntv3/payload.tar
 done
