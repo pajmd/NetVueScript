@@ -1,7 +1,7 @@
 #/bin/sh
 
 # runs every 30sec
-last_xfer_log=last_xfer.log
+last_xfer_log=/root/last_xfer.log
 
 last_xfer=""
 if [ -e "${last_xfer_log}" ]; then
