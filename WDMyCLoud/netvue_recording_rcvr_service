@@ -1,0 +1,47 @@
+#!/bin/bash
+# description: Description comes here....
+
+
+start() {
+    # code to start app comes here
+    # example: daemon program_name &
+    /home/pjmd2/netvue_recording_rcvr_script &
+}
+
+stop() {
+    # code to stop app comes here
+    # example: killproc program_name
+    pid=$(ps -ef | grep "netvue_recording_rcvr_script" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pid} ]; then echo "netvue_recording_rcvr_script already dead"; else kill -9 $pid; fi
+    pidnc=$(ps -ef | grep "nc -l -p 8556" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pidnc} ]; then echo "nc for xfr already dead"; else kill -9 $pidnc; fi
+}
+
+case "$1" in
+    start)
+       start
+       ;;
+    stop)
+       stop
+       ;;
+    restart)
+       stop
+       start
+       ;;
+    status)
+       # code to check status of app comes here
+       # example: status program_name
+       state=$(ps -ef | grep "netvue_recording_rcvr_script" | grep -v grep)
+       if [ -z "$state" ]
+       then
+          echo "netvue_status_service not running"
+       else
+          echo "netvue_status_service is running"
+       fi
+       exit $?
+       ;;
+    *)
+       echo "Usage: $0 {start|stop|status|restart}"
+esac
+
+exit 0
