@@ -22,7 +22,7 @@ The loop is required because nc stops when a communication ends on the client si
 
 ## Setting up a VirtualHost on Apache2 to upload file to WDMyCloud
 
-To makke it short it didn't work due to weird setting up of Apache.
+To make it short it didn't work due to weird setting up of Apache.
 
 Instead I added to /etc/apache2/apach2.conf an Alias
 ```
@@ -73,12 +73,18 @@ The test page is in /var/www/netvue/upload.html
 http://192.168.1.91/netvue/upload.html
 
 ### Note
-Since BusyBox doesn't implement curl and **wget** doesn't allow uploading files I am
+Since BusyBox doesn't implement **curl** and **wget** doesn't allow uploading files I am
 resorting to using **netcat aka nc** and **dd**
+
+If curl was available we could upload files with this command
+```
+curl -F "uploadedfile=@list.txt;filename=list.txt"  http://192.168.1.91/cgi-bin/netvue-upload.php
+```
+
 
 ## File transfer with nc and dd
 It is worth to mention that even though it is possible to run an **ftp server** on
-BusyBox, it is doesn't work at list on this device.
+BusyBox, it is doesn't work at least on this device.
 
 ### Commands to transfer files
 On the server:
