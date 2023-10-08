@@ -38,6 +38,27 @@ Details can be found [here](https://github.com/pajmd/NetVueScript/tree/main/WDMy
  It eats up ~~about 4GB / hour~~ between 16-20GB a day from a total of 119 GB.  
  In a little less than ~~5~~ 7-6 days the SD card should be maxed out (today 08/09 then 13/09).
 
+ ## Transferring video files fromthe camera to WDMyCloud
+
+ Since **curl** doesn't exist in BusyBox and **wget** can not upload files, I decided
+ to use **netcat aka nc* and **dd** to copy over viseo files to the **NAS**
+
+ ### The set up
+ On the client side (the cam) I wrote the **xfr.sh** script that will be launch every 30sec
+ via cron. It finds the latest file to be transferred, makes a tar ball, **dd** it and send it
+ to the NAS with **nc**.
+ 
+ On the server side (the NAS) I wrote **netvue_recording_rcvr_script**, an **nc** listener that 
+ receives the tar ball **dd** it out and untar it.
+
+The cron job needs to be run every 30s, knowing that taring and sending the files takes about
+30sec and video files are created pretty much every minute. The size of the file are 16MB.
+
+```
+* * * * * /root/xfr.sh
+* * * * * sleep 30; /root/xfr.sh 
+```
+
 ## Manual formatting
 ```
 mkfs.vfat -v /dev/mmcblk0
