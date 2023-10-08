@@ -3,7 +3,7 @@
 while true
 do
 dt=$(date +"%H%M%S")
-nc -l -p 8556 | dd bs=16M of=/home/pjmd2/ntv3/payload_$dt.tar
-cd /home/pjmd2/ntv3
-tar xvf /home/pjmd2/ntv3/payload_$dt.tar
+nc -l -p 8556 | dd bs=16M of=/shares/Public/NETVUE_CAM/payload_$dt.tar
+cd /shares/Public/NETVUE_CAM
+tar xvf /shares/Public/NETVUE_CAM/payload_$dt.tar
 done
