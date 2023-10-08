@@ -6,4 +6,5 @@ dt=$(date +"%H%M%S")
 nc -l -p 8556 | dd bs=16M of=/shares/Public/NETVUE_CAM/payload_$dt.tar
 cd /shares/Public/NETVUE_CAM
 tar xvf /shares/Public/NETVUE_CAM/payload_$dt.tar
+rm -f /shares/Public/NETVUE_CAM/payload_$dt.tar
 done
