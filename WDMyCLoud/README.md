@@ -96,5 +96,7 @@ On the client:
 dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3  | nc 192.168.1.91 8556
 ```
 
+## Clean up old recording 
 
+See [netvue_rm_old_recordings.sh](https://github.com/pajmd/NetVueScript/blob/main/WDMyCLoud/netvue_rm_old_recordings.sh) script
 
