@@ -61,6 +61,37 @@ The cron job needs to be run every 30s, knowing that taring and sending the file
 * * * * * sleep 30; /root/xfr.sh 
 ```
 
+## Viewing the files
+
+### OpenCV
+It is actually possible to read directly the **nvt3** files with OpenCV.
+
+See [nvt3tomp4.py]()
+
+This program shows we can also aggregate the files with a VideoWriter into a bigger file.
+
+There seems to be two sore points
+* the process is slow but it may be because I was reading the files from wdmycloud.
+* the resulting compression is not a good as H264 (not available for writing since it is licensed) and we end up with files that doubled in size.
+
+### FFMPEG
+**FFMPEG** is availabel in WSL so we can just call it to concatenate files
+```
+ffmpeg -f concat -safe 0 -i rev_listtoconcat.txt -c copy ~/c/Temp/todel/big.mp4
+```
+It is fast and the resulting file is H264 so the size in note altered much.
+
+**rev_listtoconcat.tx** is a reversed list (not sure why i.e. antichronological) of
+```
+for i in $(ls -c1 /mnt/wdmycloud/NETVUE_CAM/1697080253381); do echo "file '/mnt/wdmycloud/NETVUE_CAM/1697080253381/$i'" >> list.txt; done
+```
+One will nosticed that I mounted **WDMyCLoud** to wsl.  
+Here the command to do it:
+```
+sudo mount -t drvfs '\\192.168.1.91\Public' /mnt/wdmycloud
+```
+
+
 ## Manual formatting
 ```
 mkfs.vfat -v /dev/mmcblk0
