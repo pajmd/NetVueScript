@@ -91,6 +91,11 @@ Here is the command to do it (it only works because the folder was already share
 sudo mount -t drvfs '\\192.168.1.91\Public' /mnt/wdmycloud
 ```
 
+#### Note:
+It is possible to list files from WSL on Windows with the following command:
+```
+dir \\wsl$\Ubuntu-20.04
+```
 
 ## Manual formatting
 ```
