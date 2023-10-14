@@ -1,0 +1,9 @@
+#!/bin/bash
+
+days=0
+if [ "$1" != "" ]
+then
+ days=$1
+fi
+
+find /shares/Public/NETVUE_CAM/*  -mtime -${days} -type d -print -exec bash -c "/home/pjmd2/dir_count_date.sh \"{}\"" \;
