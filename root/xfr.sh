@@ -23,8 +23,9 @@ latest_recording=$(ls -trc1 $latest_folder | tail -1)
 if [ "${latest_recording}" != "${last_xfer}" ]; then
   echo "${latest_recording}" > ${last_xfer_log}
   # echo "${latest_folder}${lastet_recording}" > recording_name.log
-  tar cvf payload "${latest_folder}${latest_recording}"
-  dd bs=16M if=payload  | nc 192.168.1.91 $port_num
+  tar cvf payload_$port_num "${latest_folder}${latest_recording}"
+  dd bs=16M if=payload_$port_num  | nc 192.168.1.91 $port_num
+  rm payload_$port_num
 fi
 
 
