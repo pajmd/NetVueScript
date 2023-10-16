@@ -23,3 +23,13 @@ When the cam firmware detects the TF card and all goes well it shows in **/var/r
 [main] 1696842148255 I nv/base/mediafs/mediafs.c(101):[tf_main] - open /mnt/TF/nvt3 success  total 127981207552  media 32768  other 0  available 127981174784  cnt 0
 [main] 1696842148256 I nv/common/recording/local_recording.c(46):[tf_main] - nv_local_recording_service_resume
 ```
+
+When it doesn't detect the card:
+```
+[main] 1697447687594 I nv/main.c(220):[main] - nv_tfcard_manager_service_start
+[main] 1697447687619 I nv/common/service/tfcard_service.c(287):[tf_main] - mmc error count: 2
+[main] 1697447687619 W nv/common/service/tfcard_service.c(111):[tf_detect] - tfcard found
+[main] 1697447687641 W nv/common/service/tfcard_service.c(138):[tf_main] - tfcard pull reset
+[main] 1697447687642 W nv/common/service/tfcard_service.c(194):[tf_main] - nv_tfcard_manager_wait_on_error
+[main] 1697447687643 I nv/common/service/tfcard_service.c(212):[tf_main] - found:true user_format:false stat:none->found
+```
