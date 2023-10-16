@@ -1,6 +1,6 @@
 #!/bin/bash
 
-days=0
+days=1
 if [ "$1" != "" ]
 then
  days=$1
