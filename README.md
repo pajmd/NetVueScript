@@ -14,6 +14,7 @@ The SD card is mounted as
 
 It appears the **camera sends the state of the SD Card (mounted or not) to the app** somehow
 
+## Firmware logs when detecting the SD card
 [Here](https://github.com/pajmd/NetVueScript/blob/main/good_tf_init.md) is a trace showing how the card is detected and mounted when all goes well.
 
 ### Monitoring the SDCard mount
