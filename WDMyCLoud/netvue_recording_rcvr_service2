@@ -34,9 +34,9 @@ case "$1" in
        state=$(ps -ef | grep "netvue_recording_rcvr_script2" | grep -v grep)
        if [ -z "$state" ]
        then
-          echo "netvue_status_service not running"
+          echo "netvue_status_service2 not running"
        else
-          echo "netvue_status_service is running"
+          echo "netvue_status_service2 is running"
        fi
        exit $?
        ;;
