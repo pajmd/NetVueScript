@@ -12,6 +12,12 @@ in /etc/systemd/system, only service files in /etc/init.d are being used by the 
 ## Monitoring service
 I created a service file **/home/pjmd2/netvue_status_service** that I linked in /etc/init.d that hopefully should
 be executed when WDMyCloud boot up and that I can manage with:
+
+To instatll the service:
+```
+sudo update-rc.d netvue_status_service defaults
+```
+To manage it:
 ```
 service netvue_status_service [start/stop/status]
 ```
@@ -20,7 +26,7 @@ service netvue_status_service [start/stop/status]
 The service runs **netvue_status_script** located in /home/pjmd2 which just loops for ever on **nc listener**. 
 The loop is required because nc stops when a communication ends on the client side.
 
-## Setting up a VirtualHost on Apache2 to upload file to WDMyCloud
+## Attempt To Setting up a VirtualHost on Apache2 to upload file to WDMyCloud
 
 To make it short it didn't work due to weird setting up of Apache.
 
@@ -94,6 +100,14 @@ nc -l -p 8556 | dd bs=16M of=1696666325636_2314473851502382_1920x1080_8000_av.nv
 On the client:
 ```
 dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3  | nc 192.168.1.91 8556
+```
+
+I installed 2 services listening to 2 different ports **8556, 8557** to receive files 
+**/etc/init.d/netvue_recording_rcvr_service[2]** running scripts **netvue_recording_rcvr_script[2]**
+
+To enable them:
+```
+sudo update-rc.d netvue_recording_rcvr_service[2] defaults
 ```
 
 ## Cleanning up old recordings 
