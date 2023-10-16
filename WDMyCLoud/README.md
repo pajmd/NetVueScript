@@ -102,13 +102,13 @@ To enable them:
 ```
 sudo update-rc.d netvue_recording_rcvr_service[2] defaults
 ```
-The services run scripts **netvue_recording_rcvr_script[2]** which launch **netcat** listeners
+The services run the scripts **netvue_recording_rcvr_script[2]** which launch **netcat** listeners
 ```
 nc -l -p 855[6|7] | dd bs=16M of=1696666325636_2314473851502382_1920x1080_8000_av.nvt3
 ```
 
-On the client i.e. the webcam a cron job runs a *netcat** client wich sends files alternatively on 2 ports:
-```
+On the client i.e. the webcam runs a cron job every 30sec. The job is a *netcat** client which sends files alternatively on 2 ports:
+``` 
 dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3  | nc 192.168.1.91 855[6|7]
 ```
 
