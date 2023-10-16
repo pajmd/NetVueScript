@@ -115,7 +115,7 @@ dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3
 
 ## Cleanning up old recordings 
 
-I only keeps about 2 weeks woth of recording on WDMyCloud. 
+I only keeps about 2 weeks worth of recordings on WDMyCloud. 
 
 See [netvue_rm_old_recordings.sh](https://github.com/pajmd/NetVueScript/blob/main/WDMyCLoud/netvue_rm_old_recordings.sh) script.
 
