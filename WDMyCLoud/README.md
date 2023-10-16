@@ -9,11 +9,11 @@ I used users **root and pjmd2** (sshd allowed users) to set up the monitoring of
 WDMyCloud is a **System V init** system so as far as I understand even though there are **systemd unit files**
 in /etc/systemd/system, only service files in /etc/init.d are being used by the system.
 
-## Monitoring service
+## Monitoring service (old System-V style new one bieng SystemD)
 I created a service file **/home/pjmd2/netvue_status_service** that I linked in /etc/init.d that hopefully should
 be executed when WDMyCloud boot up and that I can manage with:
 
-To instatll the service:
+To instatll the service use [update-rc.d](https://www.thegeekdiary.com/update-rc-d-command-examples-in-linux/):
 ```
 sudo update-rc.d netvue_status_service defaults
 ```
@@ -88,27 +88,30 @@ curl -F "uploadedfile=@list.txt;filename=list.txt"  http://192.168.1.91/cgi-bin/
 ```
 
 
-## File transfer with nc and dd
+## File transfer with nc (netcat) and dd
+
 It is worth to mention that even though it is possible to run an **ftp server** on
 BusyBox, it is doesn't work at least on this device.
 
 ### Commands to transfer files
-On the server:
-```
-nc -l -p 8556 | dd bs=16M of=1696666325636_2314473851502382_1920x1080_8000_av.nvt3
-```
-On the client:
-```
-dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3  | nc 192.168.1.91 8556
-```
-
-I installed 2 services **/etc/init.d/netvue_recording_rcvr_service[2]** listening to 2 different 
-ports **8556, 8557** to receive files and running scripts **netvue_recording_rcvr_script[2]**
+On the server 
+I installed 2 services (System V) **/etc/init.d/netvue_recording_rcvr_service[2]** listening to 2 different 
+ports **8556, 8557** to receive files
 
 To enable them:
 ```
 sudo update-rc.d netvue_recording_rcvr_service[2] defaults
 ```
+The services run scripts **netvue_recording_rcvr_script[2]** which launch **netcat** listeners
+```
+nc -l -p 855[6|7] | dd bs=16M of=1696666325636_2314473851502382_1920x1080_8000_av.nvt3
+```
+
+On the client i.e. the webcam a cron job runs a *netcat** client wich sends files alternatively on 2 ports:
+```
+dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3  | nc 192.168.1.91 855[6|7]
+```
+
 
 ## Cleanning up old recordings 
 
