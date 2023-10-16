@@ -102,8 +102,8 @@ On the client:
 dd bs=16M if=1696651416372/1696666325636_2314473851502382_1920x1080_8000_av.nvt3  | nc 192.168.1.91 8556
 ```
 
-I installed 2 services listening to 2 different ports **8556, 8557** to receive files 
-**/etc/init.d/netvue_recording_rcvr_service[2]** running scripts **netvue_recording_rcvr_script[2]**
+I installed 2 services **/etc/init.d/netvue_recording_rcvr_service[2]** listening to 2 different 
+ports **8556, 8557** to receive files and running scripts **netvue_recording_rcvr_script[2]**
 
 To enable them:
 ```
