@@ -109,7 +109,7 @@ sudo service netvue_recording_rcvr_service/2 <start | stop | status>
 #### Note
 It seems like **nc** and **dd** may be running as **ps** shows but somehow they are blocked.
 In this case the 2 sevices must be bounced to fix the issue.  
-Service status seemes not to reflect the reality, besides checking **netvue_recording_rcvr_script/2** is running I think it should check **nc -l -p 8556/7** is running as well.
+Service status does not seem to reflect the reality, besides checking **netvue_recording_rcvr_script/2** is running I think it should check **nc -l -p 8556/7** is running as well.
 
 
 
