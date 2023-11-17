@@ -102,6 +102,17 @@ To enable them:
 ```
 sudo update-rc.d netvue_recording_rcvr_service[2] defaults
 ```
+To check them:
+```
+sudo service netvue_recording_rcvr_service/2 <start | stop | status>
+```
+#### Note
+It seems like **nc** and **dd** may be running as **ps** shows but somehow they are blocked.
+In this case the 2 sevices must be bounced to fix the issue.  
+Service status seemes not to reflect the reality, besides checking **netvue_recording_rcvr_script/2** is running I think it should check **nc -l -p 8556/7** is running as well.
+
+
+
 The services run the scripts **netvue_recording_rcvr_script[2]** which launch **netcat** listeners
 ```
 nc -l -p 855[6|7] | dd bs=16M of=1696666325636_2314473851502382_1920x1080_8000_av.nvt3
