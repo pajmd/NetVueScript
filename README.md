@@ -214,6 +214,10 @@ From a different machine **nmap -p- 192.168.1.29**
 See /mnt/mtd/netvue/firmware/config/v4  
 I saved backup copies there just in case.
 
+## Disabling WIFI
+As of Nov 2023 Wifi doesn't seem to work anymore so I plugged it in to ethernet.
+
+Now to disbale WIFI I renamed up /mnt/mtd/netvue/firmware/network/wpa_supplicant.conf /mnt/mtd/netvue/firmware/network/wpa_supplicant.conf.bak
 
 ## Files of interest on the phone
 
