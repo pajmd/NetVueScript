@@ -11,5 +11,6 @@ do
   echo "runtime: ${run_ts}"
   if [ $run_ts -ge 300 ]; then
     echo "bounce rcvr ${ppid}"
+    # TODO restart proper service
   fi
 done
