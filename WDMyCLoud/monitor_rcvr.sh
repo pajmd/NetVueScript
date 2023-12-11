@@ -24,8 +24,8 @@ do
       fi
       echo "Now ${now} ${ppid} is stuck since ${start_ts} bounce it" >> /home/pjmd2/bounced.log
       echo "restart service ${service} restart"
-      # kill -9 $ppid
-      # service restart $service
+      kill -9 $ppid
+      service $service restart
     else
       echo "${ppid} - ${port} are in ${state} state, all good"
     fi
