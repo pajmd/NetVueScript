@@ -1,7 +1,7 @@
 #!/bin/bash
 
 now=$(date +'%s')
-for pt in $(ps -ef | grep "nc -l -p 855" | grep -v grep | awk '{print $2";"$3";"$5;"$11}');
+for pt in $(ps -ef | grep "nc -l -p 855" | grep -v grep | awk '{print $2";"$3";"$5";"$11}');
 do
   t=$(echo $pt | cut -d";" -f3)
   pid=$(echo $pt | cut -d";" -f1)
