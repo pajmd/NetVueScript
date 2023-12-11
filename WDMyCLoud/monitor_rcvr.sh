@@ -26,6 +26,8 @@ do
       echo "restart service ${service} restart"
       # kill -9 $ppid
       # service restart $service
+    else
+      echo "${ppid} - ${port} are in ${state} state, all good"
     fi
   fi
 done
