@@ -111,6 +111,14 @@ It seems like **nc** and **dd** may be running as **ps** shows but somehow they 
 In this case the 2 sevices must be bounced to fix the issue.  
 Service status does not seem to reflect the reality, besides checking **netvue_recording_rcvr_script/2** is running I think it should check **nc -l -p 8556/7** is running as well.
 
+#### Note 2
+The receivers get stuck because the network is sometimes very slow, too slow.
+I added a cron job **monitor_rcvr.sh** to check on these receivers.  
+Here is what it does:
+* checks how long **nc 8556/8557** has been running
+* if more than 5 minutes, checks if the connections are in ESTABLISHED state
+* if so kills respective **nc parent** and restarts the respective service
+
 
 
 The services run the scripts **netvue_recording_rcvr_script[2]** which launch **netcat** listeners
