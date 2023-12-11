@@ -27,7 +27,7 @@ do
       kill -9 $ppid
       service $service restart
     else
-      echo "${ppid} - ${port} are in ${state} state, all good"
+      echo "${ppid} - ${port} are in ${state} state, all good" >> /home/pjmd2/bounced.log
     fi
   fi
 done
