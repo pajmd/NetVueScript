@@ -22,13 +22,13 @@ do
       elif  [ $port -eq 8557 ]; then
         service="netvue_recording_rcvr_service2"
       fi
-      echo "Now ${now} ${ppid} is stuck since ${start_ts} bounce it" >> /home/pjmd2/bounced.log
+      echo "$(date) Now ${now} ${ppid} is stuck since ${start_ts} bounce it" >> /home/pjmd2/bounced.log
       echo "restart service ${service} restart"
       kill -9 $ppid
       sleep 2
       service $service restart
     else
-      echo "${ppid} - ${port} are in ${state} state, all good" >> /home/pjmd2/bounced.log
+      echo "$(date) ${ppid} - ${port} are in ${state} state, all good" >> /home/pjmd2/bounced.log
     fi
   fi
 done
