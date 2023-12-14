@@ -2,6 +2,8 @@
 
 #pct=$(df /dev/mmcblk0 | grep mmcblk0 | awk '{ print $5}')
 pct=$(echo $(df /dev/mmcblk0 | grep mmcblk0 | awk '{ print $5}') | cut -d"%" -f 1)
+addr=$(ip address | grep eth0 | grep inet)
+addrip=$(echo $addr | cut -d" " -f2)
 if [[ ! -z "$pct" ]]; then
     if [ $pct -ge 99 ]; then
        folders=""
@@ -13,9 +15,9 @@ if [[ ! -z "$pct" ]]; then
          rm -rf $i
          folders=$folders" "$i
        done
-       msg=$(date)" cleaned up "$folders
+       msg=$addrip" "$(date)" cleaned up "$folders
        echo $msg | nc 192.168.1.91 8888
     else
-       echo $(date)" Nothing to clean" | nc 192.168.1.91 8888
+       echo $addrip" "$(date)" Nothing to clean" | nc 192.168.1.91 8888
     fi
 fi
