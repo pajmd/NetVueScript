@@ -23,10 +23,10 @@ do
         service="netvue_recording_rcvr_service2"
       fi
       echo "$(date) Now ${now} ${ppid} is stuck since ${start_ts} bounce it" >> /home/pjmd2/bounced.log
-      echo "restart service ${service} restart"
+      echo "restart service ${service} restart"  >> /home/pjmd2/bounced.log
       kill -9 $ppid
       sleep 2
-      service $service restart
+      sudo service $service start
     else
       echo "$(date) ${ppid} - ${port} are in ${state} state, all good" >> /home/pjmd2/bounced.log
     fi
