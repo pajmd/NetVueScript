@@ -5,14 +5,14 @@
 start() {
     # code to start app comes here
     # example: daemon program_name &
-    /home/pjmd2/netvue_recording_rcvr_script &
+    /home/pjmd2/netvue_recording_rcvr_script1 &
 }
 
 stop() {
     # code to stop app comes here
     # example: killproc program_name
-    pid=$(ps -ef | grep "netvue_recording_rcvr_script" | grep -v grep | awk '{ print $2 }')
-    if [ -z ${pid} ]; then echo "netvue_recording_rcvr_script already dead"; else kill -9 $pid; fi
+    pid=$(ps -ef | grep "netvue_recording_rcvr_script1" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pid} ]; then echo "netvue_recording_rcvr_script1 already dead"; else kill -9 $pid; fi
     pidnc=$(ps -ef | grep "nc -l -p 8556" | grep -v grep | awk '{ print $2 }')
     if [ -z ${pidnc} ]; then echo "nc for xfr already dead"; else kill -9 $pidnc; fi
 }
@@ -31,12 +31,12 @@ case "$1" in
     status)
        # code to check status of app comes here
        # example: status program_name
-       state=$(ps -ef | grep "netvue_recording_rcvr_script" | grep -v grep)
+       state=$(ps -ef | grep "netvue_recording_rcvr_script1" | grep -v grep)
        if [ -z "$state" ]
        then
-          echo "netvue_status_service not running"
+          echo "netvue_status_service1 not running"
        else
-          echo "netvue_status_service is running"
+          echo "netvue_status_service1 is running"
        fi
        exit $?
        ;;

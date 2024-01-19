@@ -18,7 +18,7 @@ do
     if [ "$state" = "ESTABLISHED" ]; then
       echo "Kill and bounce ${ppid} - ${port}"
       if [ $port -eq 8556 ]; then
-        service="netvue_recording_rcvr_service"
+        service="netvue_recording_rcvr_service1"
       elif  [ $port -eq 8557 ]; then
         service="netvue_recording_rcvr_service2"
       fi
