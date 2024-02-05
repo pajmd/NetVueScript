@@ -19,16 +19,16 @@ do
          let run_ts=$now-$start_ts
          echo "runtime: ${run_ts}"
          if [ $run_ts -ge 300 ]; then
-            echo "$(date) - now ${now} pid: ${pid} ppid: ${ppid} port: ${port} is stuck since ${start_ts} bounce it"
+            echo "$(date) - now ${now} pid: ${pid} ppid: ${ppid} port: ${port} is stuck since ${start_ts} bounce it" >> /home/pjmd2/bounced.log
             if [ $ppid -eq 1 ]; then
-              echo "Owner is ${ppid} system kill: $pid"
+              echo "Owner is ${ppid} system kill: $pid" >> /home/pjmd2/bounced.log
               kill -9 $pid
             else
               service="netvue_recording_rcvr_service1"
               if [ $port = "8557" ]; then
                  service="netvue_recording_rcvr_service2"
               fi
-              echo "Running: service ${service} restart"
+              echo "Running: service ${service} restart" >> /home/pjmd2/bounced.log
               kill -9 $ppid
               sleep 2
               service $service start
