@@ -5,7 +5,7 @@ ports=("8556" "8557")
 
 for port in ${ports[@]};
 do
-   echo $port;
+   echo "Checking on $(date) port $port"
    pids=$(netstat -atp | grep $port | grep -v grep | grep ESTABLISHED | awk '{print $ 7}' | awk -F/ '{print $1}')
    echo "Pids: $pids"
    if  [ "$pids" != "" ]; then
