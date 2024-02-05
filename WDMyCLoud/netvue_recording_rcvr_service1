@@ -5,7 +5,12 @@
 start() {
     # code to start app comes here
     # example: daemon program_name &
-    /home/pjmd2/netvue_recording_rcvr_script1 &
+    pid=$(ps -ef | grep "netvue_recording_rcvr_script1" | grep -v grep | awk '{ print $2 }')
+    if [ -z ${pid} ]; then
+        /home/pjmd2/netvue_recording_rcvr_script1 &
+    else
+        echo "netvue_recording_rcvr_script1 already running"
+    fi
 }
 
 stop() {
