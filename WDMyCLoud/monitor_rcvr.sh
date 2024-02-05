@@ -22,16 +22,16 @@ do
             echo "$(date) - now ${now} pid: ${pid} ppid: ${ppid} port: ${port} is stuck since ${start_ts} bounce it"
             if [ $ppid -eq 1 ]; then
               echo "Owner is ${ppid} system kill: $pid"
-              # kill -9 $pid
+              kill -9 $pid
             else
               service="netvue_recording_rcvr_service1"
               if [ $port = "8557" ]; then
                  service="netvue_recording_rcvr_service2"
               fi
               echo "Running: service ${service} restart"
-              # kill -9 $ppid
+              kill -9 $ppid
               sleep 2
-              # service $service start
+              service $service start
             fi
          fi
       done
