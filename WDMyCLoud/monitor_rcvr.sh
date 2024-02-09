@@ -31,7 +31,7 @@ do
               echo "Running: service ${service} restart" >> /home/pjmd2/bounced.log
               kill -9 $ppid
               sleep 2
-              service $service start
+              service $service restart
             fi
          fi
       done
