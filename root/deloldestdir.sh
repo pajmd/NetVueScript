@@ -5,9 +5,9 @@ pct=$(echo $(df /dev/mmcblk0 | grep mmcblk0 | awk '{ print $5}') | cut -d"%" -f 
 addr=$(ip address | grep eth0 | grep inet)
 addrip=$(echo $addr | cut -d" " -f2)
 if [[ ! -z "$pct" ]]; then
-    if [ $pct -ge 99 ]; then
+    if [ $pct -ge 85 ]; then
        folders=""
-       for i in $(ls -lC1 /mnt/TF/nvt3/ | head -n 2)
+       for i in $(ls -lC1 /mnt/TF/nvt3/ | head -n 5)
        do
          echo "deleting "$i
          # rm /mnt/TF/nvt3/$i/*
