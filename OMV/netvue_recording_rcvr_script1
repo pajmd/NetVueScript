@@ -1,0 +1,10 @@
+#!/bin/bash
+
+while true
+do
+dt=$(date +"%H%M%S")
+nc -l -p 8556 | dd bs=16M of=/public/NETVUE_CAM/payload_$dt.tar
+cd /public/NETVUE_CAM
+tar xvf /public/NETVUE_CAM/payload_$dt.tar
+rm -f /public/NETVUE_CAM/payload_$dt.tar
+done
