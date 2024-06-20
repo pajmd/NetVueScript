@@ -1,6 +1,7 @@
 # Porting the recording scripts from WDMycloud to OMV
 
 ## Scripts
+Located in In /home/pjmd/netvue
 - netvue_recording_rcvr_script1
 - netvue_recording_rcvr_script2
 - netvue_recording_rcvr_service1.service
