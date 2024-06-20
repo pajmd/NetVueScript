@@ -1,0 +1,14 @@
+[Unit]
+Description=Launching netvue_recording_rcvr_script1
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pjmd
+ExecStart=/home/pjmd/netvue/netvue_recording_rcvr_script1
+
+[Install]
+WantedBy=multi-user.target
