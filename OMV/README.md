@@ -27,4 +27,5 @@ sudo systemctl status netvue_status_service.service
 
 ## Cron jobs
 
-**monitor_rcvr.sh** is a cron job whose purpose is to monitor the recordings services in case they get stuck.
+- **monitor_rcvr.sh** is a cron job whose purpose is to monitor the recordings services in case they get stuck.
+- **netvue_rm_old_recordings.sh** cron job to delete old recordings from /public/NETVUE_CAM
