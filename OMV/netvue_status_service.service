@@ -1,0 +1,14 @@
+[Unit]
+Description=Launching netvue_status_script
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pjmd
+ExecStart=/home/pjmd/netvue/netvue_status_script
+
+[Install]
+WantedBy=multi-user.target
