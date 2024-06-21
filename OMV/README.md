@@ -24,3 +24,7 @@ sudo systemctl start netvue_recording_rcvr_service1
 sudo systemctl start netvue_recording_rcvr_service2
 sudo systemctl status netvue_status_service.service
 ```
+
+## Cron jobs
+
+**monitor_rcvr.sh** is a cron job whose purpose is to monitor the recordings services in case they get stuck.
