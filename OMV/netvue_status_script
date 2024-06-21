@@ -1,0 +1,6 @@
+#!/bin/bash
+
+while true
+do
+nc -l -p 8888 >> /home/pjmd/netvue/logs/netvue.log
+done
