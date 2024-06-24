@@ -14,6 +14,10 @@ do
          pt=$(ps -ef | grep "nc -l -p $port" | grep $pid | grep -v grep | awk '{print $2";"$3";"$5";"$11}')
          # echo $pt
          t=$(echo $pt | cut -d";" -f3)
+         if [ -z "$t" ]; then
+            echo "Result for ps nc -l -p $port and PID: $pid = $pt"
+            continue
+         fi
          ppid=$(echo $pt | cut -d";" -f2)
          start_ts=$(date +'%s' -d$t)
          let run_ts=$now-$start_ts
@@ -37,3 +41,4 @@ do
       done
    fi
 done
+
