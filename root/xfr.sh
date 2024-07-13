@@ -3,6 +3,8 @@
 # runs every 30sec
 last_xfer_log=/root/last_xfer.log
 port_log=/root/port.log
+IP=192.168.1.33
+# IP=192.168.1.79
 
 last_xfer=""
 if [ -e "${last_xfer_log}" ]; then
@@ -11,7 +13,7 @@ fi
 
 # port_num=8556
 # if [ -e "${port_log}" ]; then
-#   port_num=$(cat ${port_log})
+#    port_num=$(cat ${port_log})
 # fi
 # echo $((port_num == 8556 ? 8557 : 8556)) > ${port_log}
 
@@ -20,17 +22,19 @@ port=$(ps -ef | grep "nc " | grep 8557)
 if [ -z "$port" ]
 then
    port_num=8557
-else 
+else
    port=$(ps -ef | grep "nc " | grep 8556)
    if [ -z "$port" ]
    then
       port_num=8556
    else
-      # Just wait until a port is free
+      # Just until a port is free
       echo "$(date) Both ports are busy" > ${port_log}
       exit 0
    fi
 fi
+
+port_num=8558
 echo "$(date) $port_num" > ${port_log}
 
 # Get the latest recording from the latest folder
@@ -42,8 +46,8 @@ if [ "${latest_recording}" != "${last_xfer}" ]; then
   echo "${latest_recording}" > ${last_xfer_log}
   # echo "${latest_folder}${lastet_recording}" > recording_name.log
   tar cvf payload_$port_num "${latest_folder}${latest_recording}"
-  dd bs=16M if=payload_$port_num  | nc 192.168.1.33 $port_num
+#  dd bs=16M if=payload_$port_num  | nc 192.168.1.91 $port_num
+  echo "dd bs=16M if=payload_$port_num  | nc $IP $port_num"
+  dd bs=16M if=payload_$port_num  | nc $IP $port_num
   rm payload_$port_num
 fi
-
-
