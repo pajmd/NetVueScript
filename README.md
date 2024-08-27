@@ -104,6 +104,10 @@ mkfs.vfat -v /dev/mmcblk0
 ```
 To format and seems to cause a reboot (benefic?)
 
+After a while the camera seemed to be able to mount the SDCARD to /tmp/mnt but failed right after.  
+Reformatting the sdcard with the command above would not fix the issue.   
+What seemed to work is to reformat the sdcard on the PC as ntfs quick, install it in the cam and format it with the command above.
+
 ## To be noted
 fdisk returns a questionable number of cylinders  
 ~ # fdisk /dev/mmcblk0
